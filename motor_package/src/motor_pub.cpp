@@ -1,6 +1,6 @@
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
-#include "motor_package/msg/cmd.hpp"
+#include "motor_package_msg/msg/cmd.hpp"
 
 class MotorPuber : public rclcpp::Node
 {
@@ -9,21 +9,21 @@ public:
     {
         RCLCPP_INFO(this->get_logger(), "%s is .", name.c_str());
 
-        command_publisher_ = this->create_publisher<motor_package::msg::Cmd>("command", 10);
+        command_publisher_ = this->create_publisher<motor_package_msg::msg::Cmd>("command", 10);
         timer_ = this->create_wall_timer(std::chrono::milliseconds(500), std::bind(&MotorPuber::timer_callback, this));
     }
 
 private:
     void timer_callback()
     {
-        motor_package::msg::Cmd message;
+        motor_package_msg::msg::Cmd message;
         message.name = "motor1";
         message.value = 0.1;
         RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.name.c_str());
         command_publisher_->publish(message);
     }
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Publisher<motor_package::msg::Cmd>::SharedPtr command_publisher_;
+    rclcpp::Publisher<motor_package_msg::msg::Cmd>::SharedPtr command_publisher_;
 };
 
 int main(int argc, char **argv)
