@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(motor_package_msg)
+project(vehicle_package)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -19,14 +19,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-
-find_package(rosidl_default_generators REQUIRED)
-
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/Cmd.msg"
-  "msg/Info.msg"
- )
-
+find_package(motor_package_msg REQUIRED)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -39,5 +32,12 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+add_executable(vehicle src/vehicle.cpp)
+ament_target_dependencies(vehicle rclcpp std_msgs motor_package_msg)
+
+install(TARGETS
+  vehicle
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 ament_package()

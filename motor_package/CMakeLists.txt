@@ -32,11 +32,11 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-add_executable(motor_pub src/motor_pub.cpp)
-ament_target_dependencies(motor_pub rclcpp std_msgs motor_package_msg)
+add_executable(motormanager src/motormanager.cpp)
+ament_target_dependencies(motormanager rclcpp std_msgs motor_package_msg)
 
 install(TARGETS
-  motor_pub
+  motormanager
   DESTINATION lib/${PROJECT_NAME}
 )
 
