@@ -19,6 +19,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+# 自定义的消息需要findpackage
 find_package(motor_package_msg REQUIRED)
 
 if(BUILD_TESTING)
@@ -33,8 +34,10 @@ if(BUILD_TESTING)
 endif()
 
 add_executable(vehicle src/vehicle.cpp)
+# 同样的使用ament链接依赖
 ament_target_dependencies(vehicle rclcpp std_msgs motor_package_msg)
 
+# 将可执行文件安装到指定路径下
 install(TARGETS
   vehicle
   DESTINATION lib/${PROJECT_NAME}
