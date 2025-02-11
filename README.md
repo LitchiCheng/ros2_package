@@ -24,3 +24,11 @@ ros2 run orbbec_cam_pkg image_publisher
 
 rviz2
 ```
+
+- yolo dependency
+
+```
+pip3 install ultralytics
+sudo apt install ros-humble-cv-bridge
+sudo apt install ros-humble-image-transport
+```
