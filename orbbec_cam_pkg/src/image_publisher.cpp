@@ -11,7 +11,8 @@ class ImagePublisher : public rclcpp::Node
 public:
     ImagePublisher() : Node("image_publisher")
     {
-        publisher_ = this->create_publisher<sensor_msgs::msg::Image>("rgb_image", 10);
+        rgb_publisher_ = this->create_publisher<sensor_msgs::msg::Image>("rgb_image", 10);
+        depth_publisher_ = this->create_publisher<sensor_msgs::msg::Image>("depth_image", 10);
         timer_ = this->create_wall_timer(std::chrono::milliseconds(30), std::bind(&ImagePublisher::timer_callback, this));
     }
     void camInit()
@@ -26,19 +27,19 @@ public:
 private:
     void timer_callback()
     {
-        // 创建一个简单的RGB图像（这里创建一个红色方块图像）
-        // cv::Mat image(480, 640, CV_8UC3, cv::Scalar(0, 0, 255));
-        cv::Mat image = cam_.getImg();
-
-        // 将OpenCV图像转换为ROS 2图像消息
-        sensor_msgs::msg::Image::SharedPtr msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", image).toImageMsg();
-
-        // 发布图像消息
-        publisher_->publish(*msg);
-        RCLCPP_INFO(this->get_logger(), "Publishing an RGB image");
+        //CV_8UC3 8位无符号3通道图像
+        cv::Mat rgb_image = cam_.getImg();
+        sensor_msgs::msg::Image::SharedPtr rgb_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", rgb_image).toImageMsg();
+        rgb_publisher_->publish(*rgb_msg);
+        //CV_16UC1 16位无符号单通道图像
+        cv::Mat depth_image = cam_.getDepth();
+        sensor_msgs::msg::Image::SharedPtr depth_msg = cv_bridge::CvImage(std_msgs::msg::Header(), "mono16", depth_image).toImageMsg();
+        depth_publisher_->publish(*depth_msg);
+        // RCLCPP_INFO(this->get_logger(), "Publishing image");
     }
 
-    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr publisher_;
+    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr rgb_publisher_;
+    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr depth_publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
     OrbbecCam cam_;
 };

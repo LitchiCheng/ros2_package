@@ -28,7 +28,7 @@ class YoloTargetDetectionNode(Node):
         # Create a publisher for output image with bounding boxes
         self.obb_pub = self.create_publisher(
             ROSImage,
-            '/camera/rgb/obb_image',
+            '/obb_image',
             10
         )
 
@@ -82,9 +82,6 @@ class YoloTargetDetectionNode(Node):
             self.get_logger().info("Published object-bound box image.")
         except Exception as e:
             self.get_logger().error(f"Error publishing image: {e}")
-
-
-
 
 def main(args=None):
     rclpy.init(args=args)
