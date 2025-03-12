@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: display_so_arm100_rviz
+    relative_path: urdf/SO_7DOF_ARM100_08h_HL_01d_URDF_01.SLDASM.urdf
+  srdf:
+    relative_path: config/display_so_arm100_rviz.srdf
+  package_settings:
+    author_name: LitchiCheng
+    author_email: 974782852@qq.com
+    generated_timestamp: 1741787027
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

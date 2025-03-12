@@ -1,0 +1,18 @@
+# MoveIt uses this configuration for controller management
+
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - so-arm100-groups_controller
+
+  so-arm100-groups_controller:
+    type: FollowJointTrajectory
+    joints:
+      - Shoulder_Pitch
+      - Shoulder_Yaw
+      - Humeral_Rotation
+      - Elbow
+      - Wrist_Roll
+      - Wrist_Yaw
+      - Wrist_Pitch

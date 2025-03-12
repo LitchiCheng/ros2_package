@@ -2,10 +2,17 @@ import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch import LaunchDescription
+from launch.substitutions import LaunchConfiguration
+from launch_ros.actions import Node
+from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
-    # 读取 URDF 文件内容
-    urdf_file_path = '/home/dar/ws_ros2/src/display_urdf_launch/model/diff_without_xacro.urdf'
+    package_name = 'display_so_arm100_rviz'
+    urdf_name = "SO_7DOF_ARM100_08h_HL_01d_URDF_01.SLDASM.urdf"
+    pkg_share = FindPackageShare(package=package_name).find(package_name) 
+    urdf_model_path = os.path.join(pkg_share, f'urdf/{urdf_name}')
+    urdf_file_path = urdf_model_path
     with open(urdf_file_path, 'r') as file:
         robot_description = file.read()
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="diff">
+    <!-- 定义常量 -->
+    <xacro:property name="BASE_LINK_SIZE" value="0.5 0.3 0.1"/>
+    <xacro:property name="WHEEL_RADIUS" value="0.3"/>
+    <xacro:property name="WHEEL_LENGTH" value="0.05"/>
+    <xacro:property name="BASE_LINK_MASS" value="1.0"/>
+    <xacro:property name="WHEEL_MASS" value="0.1"/>
+    <xacro:property name="WHEEL_POS_Y" value="0.15"/>
+
+    <!-- 定义连杆惯性宏 -->
+    <xacro:macro name="link_inertial" params="mass ixx ixy ixz iyy iyz izz">
+        <inertial>
+            <mass value="${mass}"/>
+            <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" iyy="${iyy}" iyz="${iyz}" izz="${izz}"/>
+        </inertial>
+    </xacro:macro>
+
+    <!-- 定义方形底盘 -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="${BASE_LINK_SIZE}"/>
+            </geometry>
+            <material name="base_link_material">
+                <color rgba="0.0 0.0 1.0 1.0"/> <!-- 蓝色车体 -->
+            </material>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="${BASE_LINK_SIZE}"/>
+            </geometry>
+        </collision>
+        <xacro:link_inertial mass="${BASE_LINK_MASS}" ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </link>
+
+    <!-- 定义轮子宏 -->
+    <xacro:macro name="wheel" params="name side">
+        <link name="${name}">
+            <visual>
+                <geometry>
+                    <cylinder radius="${WHEEL_RADIUS}" length="${WHEEL_LENGTH}"/>
+                </geometry>
+                <material name="${name}_material">
+                    <color rgba="1.0 0.0 0.0 1.0"/> <!-- 红色轮子 -->
+                </material>
+            </visual>
+            <collision>
+                <geometry>
+                    <cylinder radius="${WHEEL_RADIUS}" length="${WHEEL_LENGTH}"/>
+                </geometry>
+            </collision>
+            <xacro:link_inertial mass="${WHEEL_MASS}" ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+        </link>
+        <joint name="${name}_joint" type="continuous">
+            <parent link="base_link"/>
+            <child link="${name}"/>
+            <origin xyz="0.0 ${side * WHEEL_POS_Y} 0" rpy="1.5708 0 0"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+    </xacro:macro>
+
+    <!-- 定义左驱动轮 -->
+    <xacro:wheel name="left_wheel_link" side="1"/>
+    <!-- 定义右驱动轮 -->
+    <xacro:wheel name="right_wheel_link" side="-1"/>
+</robot>
