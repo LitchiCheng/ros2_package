@@ -14,9 +14,11 @@
 
 [想知道两轮差速方形底盘 URDF 咋做，ROS2 配 Rviz 咋显示吗？看这里](https://www.bilibili.com/video/BV1Cq9NYhEiz?vd_source=5ba34935b7845cd15c65ef62c64ba82f&spm_id_from=333.788.videopod.sections)
 
-### panda_moveit_control
+### panda_moveit_controller
 
 [一文搞定！ROS2 中用 MoveIt2 精准操控 Panda 机械臂末端至固定位姿](https://www.bilibili.com/video/BV1cY9HYuEMH?vd_source=5ba34935b7845cd15c65ef62c64ba82f&spm_id_from=333.788.videopod.sections)
+
+[Panda换成SO-Arm100机械臂，代码仅换一行，末端固定位姿一样控制](https://www.bilibili.com/video/BV1XJQPYTEBH/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)
 
 ### panda_joint_control
 
