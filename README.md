@@ -36,6 +36,10 @@
 
 [ROS2下编写orbbec相机C++ package并Rviz显示](https://www.bilibili.com/video/BV1HUwSe3E6o?vd_source=5ba34935b7845cd15c65ef62c64ba82f&spm_id_from=333.788.videopod.sections)
 
+### mtc_tutorail
+
+[ROS2 机械臂 MoveIt 开发必看！用 MTC 实现抓取任务规划的完整流程](https://www.bilibili.com/video/BV1JC9UYjErK/)
+
 ## build
 
 ```
