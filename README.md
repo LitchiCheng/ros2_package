@@ -42,6 +42,10 @@
 
 [ROS2 机械臂 MoveIt 开发必看！用 MTC 实现抓取任务规划的完整流程](https://www.bilibili.com/video/BV1JC9UYjErK/)
 
+### moveit_servo_panda
+
+[ROS2 Moveit2 手把手教你 Panda 机械臂笛卡尔速度控制!（附代码）](https://www.bilibili.com/video/BV1RUX7YmEBE/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)
+
 ## build
 
 ```
