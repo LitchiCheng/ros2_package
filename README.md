@@ -46,6 +46,10 @@
 
 [ROS2 Moveit2 手把手教你 Panda 机械臂笛卡尔速度控制!（附代码）](https://www.bilibili.com/video/BV1RUX7YmEBE/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)
 
+### joint_state_subscriber
+
+[ROS2下MoveIt+Rviz+MuJoCo 三剑合璧！Panda 机械臂联动仿真！](https://www.bilibili.com/video/BV1GEo2YiERx/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)
+
 ## build
 
 ```
