@@ -2,6 +2,14 @@
 
 ## tutorial 
 
+### dispaly_multi_urdf
+
+[Rviz 同时显示多个独立 URDF！解决双机械臂+底盘等场景（球体+方块实例演示）](https://www.bilibili.com/video/BV1Svo8YSEgZ/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)
+
+### joint_state_subscriber
+
+[ROS2下MoveIt+Rviz+MuJoCo 三剑合璧！Panda 机械臂联动仿真！](https://www.bilibili.com/video/BV1GEo2YiERx/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)
+
 ### so_arm100_moveit
 
 [【🚀SO-Arm100 机械臂 ROS2 配置保姆级教程】MoveIt Setup Assistant 从 0 到 1 实操！避坑指南](https://www.bilibili.com/video/BV1W3QWY5EUf/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)
@@ -46,9 +54,7 @@
 
 [ROS2 Moveit2 手把手教你 Panda 机械臂笛卡尔速度控制!（附代码）](https://www.bilibili.com/video/BV1RUX7YmEBE/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)
 
-### joint_state_subscriber
 
-[ROS2下MoveIt+Rviz+MuJoCo 三剑合璧！Panda 机械臂联动仿真！](https://www.bilibili.com/video/BV1GEo2YiERx/?vd_source=5ba34935b7845cd15c65ef62c64ba82f)
 
 ## build
 

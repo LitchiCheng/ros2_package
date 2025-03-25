@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<rviz config_version="1.12">
+  <VisualizationManager>
+    <GlobalOptions>
+      <FixedFrame value="world"/>
+      <FrameRate value="30"/>
+    </GlobalOptions>
+    <Display>
+      <Class value="rviz/RobotModel"/>
+      <Name value="Cube"/>
+      <Enabled value="true"/>
+      <RobotDescriptionTopic value="/cube/robot_description"/>
+      <TFPrefix value="cube"/>
+    </Display>
+    <Display>
+      <Class value="rviz/RobotModel"/>
+      <Name value="Sphere"/>
+      <Enabled value="true"/>
+      <RobotDescriptionTopic value="/sphere/robot_description"/>
+      <TFPrefix value="sphere"/>
+    </Display>
+  </VisualizationManager>
+</rviz>
